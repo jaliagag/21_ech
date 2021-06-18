@@ -102,7 +102,13 @@ las cabeceras IP contienen las direcciones IP de las máquinas de origen y desti
 
 Direccionamiento vs enrutamiento
 
-- direccionamiento: una etiqueta que nos encontramos en el dispositivo de la red. **dentro de una red necesitamos identificar a todos los dispositivos** para la comunicación en la red. el direccionamiento privado es para la red LAN y el público para todo lo que sea WAN. todo direccionamiento no expuesto es considerado direccionamiento público.
+- direccionamiento: una etiqueta que nos encontramos en el dispositivo de la red. **dentro de una red necesitamos identificar a todos los dispositivos** para la comunicación en la red. el direccionamiento privado es para la red LAN y el público para todo lo que sea WAN. todo direccionamiento no expuesto es considerado direccionamiento público. el direccionamiento IP se gestiona a nivel global por la corporación ICANN, que reparte los grandes bloques de direccionamiento a cinco regiones
+  - AfriNIC
+  - APNIC
+  - ARIN
+  - LACNIC
+  - RIPE NCC
+
 - enrutamiento: aprender la manera de encontrar un equipo  o una determinada IP dentro de esa red. en la tabla de enrutamiento, se encuentran todas laredes publicadas y/o aprendidas
 
 una dirección ip asignada a un equipo es única.
@@ -111,8 +117,90 @@ la **máscara de red** es una combinación de bits que sirve para delimitar el �
 
 la puerta de enlace o **gateway** es un dispositivo que permite interconectar redes con protocolos y arquitecturas diferentes a todos los niveles de comunicación. su función es traducir la información del protocolo utilizado en una red al protocolo usado en la red de destino. la default gateway indica al tráfico de red por dónde tiene que salir
 
+Un byte está formado por 8 bits; la direcciones ip tienen 4 bytes, 32 bits. se forman SIEMPRE sumando de izquierda a derecha
+
+| 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 | dirección |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 192 |
+| 1 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 168 |
+| 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 16 |
+| 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 24 |
+
+```md
 Crear un informe explicando que son las bases de datos “WHOIS” y cuáles son las correspondientes a nuestra zona (continente) y país.
 
-bases de datos WHOIS: registro que identifica a quién pertenece un dominio y cómo contactarlo. la ICANN (Internet Corporation for Assigned Names and Numbers) regula el registro y a quién pertenecen los nombres de dominio. no es exclusivo de la ICANN, si no que los datos son almacenados por "registradores" que deben estar acreditados por la ICANN.
+Las bases de datos WHOIS son un registro que identifica a quién pertenece un dominio y cómo contactarlo. la ICANN (Internet Corporation for Assigned Names and Numbers) regula el registro y a quién pertenecen los nombres de dominio. no es exclusivo de la ICANN, si no que los datos son almacenados por "registradores" que deben estar acreditados por la ICANN.
 
 los datos que almacenan estas bases datos incluyen: nombre, domicilio, correo electrónico, número de teléfono y contactos técnicos y administrativos. estos datos son de acceso público a los datos sobre nombres registrados. WHOIS es también el protocolo que se usa para buscar en sus bases de datos e identificar al titular o "registrario" de un dominio.
+
+En América Latina la principales bases de datos WHOIS son <https://nic.ar/es/whois>, <https://www.lacnic.net/1002/1/lacnic/whois> y ya un poco más al norte <https://www.iar.mx/jsf/static_content/services/current_services/resource_registry/whoisDatabase.jsf> o más a nivel internacional <https://ar.godaddy.com/whois>.
+
+Buscar en Internet 4 direcciones IP y examinarlas - Transformar a las mismas en binario y subirlas al foro correspondiente
+
+www.cordoba.gob.ar
+IP: 76.223.3.255
+binario: 01001100.11011111.00000011.1111111
+
+www.dxc.com
+IP: 151.101.3.10
+binario: 10010111.01100101.00000011.00001010
+
+www.resolvit.com
+IP: 198.55.245.164
+binario: 11000110.00110111.111110101.10100100
+
+mail.google.com
+IP: 216.58.222.37
+binario: 1101100.00111010.11011110.00100101
+```
+
+### Dispositivos de seguridad de red
+
+firewall, IDS, IPS NIDS, HIDS. dentro de los dispositivos tenemos los ACL (access control list).
+
+#### Firewall
+
+el firewall es un dispositivo de red cuya función principal es la de bloquear todo acceso hacia la red y desde ella mediante configuraciones llamadas reglas o políticas.
+
+- restrictivo: lo que no sea explícitamente permitido, será negado
+- permisivo: lo que no sea explícitamente negado, será permitido
+
+Dónde se instale el firewall nos indicará cómo intermedia las comunicaciones de la red que desea inspeccionar.
+
+- dual-homed firewall: el equipo cuenta con dos dispositivos o interfaces que permitirán interactuar tant ocon la red pública como con la privada
+- multi-homed firewall: el equipo cuenta con varios dispositivos que permitirán interactuar con varias redes distintas (distintas políticas para cada red)
+- DMZ (demilitarized zone) o red perimetral es una red local que se ubica entre la red interna de una organización y una red externa (internet). generalmente se posicionan en esta zona los servicios que se quieren publicar en una red pública (internet) como servidores de correo electrónico, web y dns.
+
+servicios de firewall: packet filtering (filtrado de paquetes), application layer y statefull (recuerdo de sesiones establecidas)
+
+#### IDS (intrusion detection systems)
+
+los ids realizan un análisis de cada paquete que circule por su rango de cobertura. son capaces de detectar anomalías o firmas y programar acciones/reglas. un **ids basado en patrones** analiza paquetes en la red y los compara con patrones de ataque conocidos y preconfigurados. estos patrones se denominan firmas.
+
+un **IDS basado en heurística** determina la actividad normal de la red, como el orden de ancho de banda usado, protocolos, puertos y dispositivos habituales y alerta cuando encuentra variaciones. cuenta con una base de datos (firmas) que usa para comparar y actuar en consecuencia.
+
+- NIDS: basado en software o hardware para analizar segmentos de red donde estén conectados
+- HIDS: basado en software, aplicado sobre un OS - el famoso antivirus del OS
+
+IDS Cisco 4250
+
+#### IPS (intrusion prevention systems)
+
+ips analiza en tiempo real. monitorear en tiempo real. rendimiento de tráfico afectado??
+
+- detección basada en firmas
+- detección basada en políticas
+- detección basada en anomalías: puede ser que el aparato mismo genere la base de la normalidad o que se fije manualmente (lo cual puede generar falsos positivos)
+
+IPS Cisco 4265
+
+#### honeypot
+
+honeypot es un sistema muy flexible dentro de la seguridad informática que se encarga de atraer y analizar el comportamiento de los atacantes en internet. sirve para atraer atacantes (?) y así capturar el tráfico de red entrante y conocer todos los detalles acerca de latendencias y metodologías de ataque de los atacantes así como los fallos de seguridad en nuestra red y así prevenirlos.
+
+- según su implementación
+  - producción: obtención de información sobre técnicas empleadas para tratar de vulnerar los sistemas que componen dicha infraestructura
+  - investigación: recursos educativos
+- según su interacción
+  - alta interacción: sistema convencional, mal configurado para que sean atacados (metasploit?). cada interacción se considera sospechosa
+  - baja interacción: investigación de nuevas amenazas en la red (máquina con vbox o vmware)
