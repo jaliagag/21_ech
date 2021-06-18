@@ -82,3 +82,37 @@ desde que descargaba películas, series y juegos que soy el "que arregla computa
 <http://www.etitudela.com/fpm/comind/downloads/topologiadered.pdf>
 
 punto de indiencia: problema si pasara algo en un dispositivo, afectando la disponibilidad, integridad o confidencialidad de la red (corte de luz, falta de backups, SPOF)
+
+## unidad 2 - instalación y configuración en redes
+
+### TCP/IP
+
+TCP/IP suite de protocolos que provee los servicios necesarios para poder conectar distintos dispositivos. 4 capas
+
+1. aplicación (1 Application, 2 presentation, 3 session). administra todas las funciones utilizadas y requeridas por las aplicaciones y los servicios que tengan una relación directa con el usuario final: HTTP, SMTP, FTP, SSH, DNS, RIP, SNMP, DHCP
+2. transporte (4 transport). proveer la conectividad punta a punta entre el origen (emisor) y el destinatario (receptor) y permite intercambiar los roles de emisor y receptor dinámicamente. TCP, DCCP UDP, ICMP, FCP, UTP
+3. internet (5 network). definir el esquema de direccionamiento lógico de los equipos que se conecten a la red y el direccionamiento de cada uno de los equipos de la red. servicio de enrutamiento (información de los equipos de origen y destino). IP, ICMP, IPSEC, IGMP
+4. acceso a la red (6 Data link y 7 physical). protocolos encargados de preparar el ambiente físico y lógico necesario para realizar las comunicaciones. se define el modo de acceso físico a la red y la traducción del direccionamiento. ARP (data link), L2TP, NDP, ETHERNET
+
+### protocolo ip
+
+protocolo de comunicación en la capa de red (2). uso bidireccional (origen o destino) de comunicación para transmitir datos mediante un protocolo __no rientado a conexión__ (una comunicación entre dos puntos finales de una red en los que un mensaje puede ser enviado desde un punto final a otro _sin acuerdo previo_) que transfiere paquetes conmutados. los paquetes pueden tomar disntintas rutas para atravesar la red - no se hace contacto con el destino antes de que se envíe el paquete.
+
+las cabeceras IP contienen las direcciones IP de las máquinas de origen y destino, que serán usadas por los routers para decidir el tramo de red por el que enviarán los paquetes.
+
+Direccionamiento vs enrutamiento
+
+- direccionamiento: una etiqueta que nos encontramos en el dispositivo de la red. **dentro de una red necesitamos identificar a todos los dispositivos** para la comunicación en la red. el direccionamiento privado es para la red LAN y el público para todo lo que sea WAN. todo direccionamiento no expuesto es considerado direccionamiento público.
+- enrutamiento: aprender la manera de encontrar un equipo  o una determinada IP dentro de esa red. en la tabla de enrutamiento, se encuentran todas laredes publicadas y/o aprendidas
+
+una dirección ip asignada a un equipo es única.
+
+la **máscara de red** es una combinación de bits que sirve para delimitar el ámbito de una red de computadoras. 192.168.0.0/16 - el número que aparece después de la "/" es la suma de los bits que se utilizan para la máscara de red. esa identificación se la conoce como CIDR. la función de la máscara de red es indicar a los dispositivos qué parte de la dirección IP es el número de la red, incluyendo la subred, y qué parte es la que corresponde al host.
+
+la puerta de enlace o **gateway** es un dispositivo que permite interconectar redes con protocolos y arquitecturas diferentes a todos los niveles de comunicación. su función es traducir la información del protocolo utilizado en una red al protocolo usado en la red de destino. la default gateway indica al tráfico de red por dónde tiene que salir
+
+Crear un informe explicando que son las bases de datos “WHOIS” y cuáles son las correspondientes a nuestra zona (continente) y país.
+
+bases de datos WHOIS: registro que identifica a quién pertenece un dominio y cómo contactarlo. la ICANN (Internet Corporation for Assigned Names and Numbers) regula el registro y a quién pertenecen los nombres de dominio. no es exclusivo de la ICANN, si no que los datos son almacenados por "registradores" que deben estar acreditados por la ICANN.
+
+los datos que almacenan estas bases datos incluyen: nombre, domicilio, correo electrónico, número de teléfono y contactos técnicos y administrativos. estos datos son de acceso público a los datos sobre nombres registrados. WHOIS es también el protocolo que se usa para buscar en sus bases de datos e identificar al titular o "registrario" de un dominio.
