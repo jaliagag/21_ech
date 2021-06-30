@@ -210,4 +210,15 @@ Dentro de una red hay un servidor DHCP con un rango de IPs privadas sin usar, co
 
 Creo que se refiere al servicio de subnetting, donde usamos segmentos para lógicos para separar redes.
 
+## Laboratorio teórico: ataques potenciales al DHCP
+
+- DHCP STARVATION: inundar con peticiones DHCPREQUEST al servidor DHCP, con direcciones MAC falsas con el objetivo de agotar su espacio de direcciones asignables. El objetivo es que el servidor DHCP no sea capaz de responder a otros clientes
+- DHCP SPOOFING: suplantar al servidor DHCP de una red y modificar los parámetros de red que reciben los equipos conectados al renovar o solicitar una nueva IP.
+- DHCP ROGUE SERVER: servidor que se encuentra e nla red fuera del control del administrador y que se usa para hacer ataques de tipo MITM (man in the middle). 
+- DHCP ACK INJECTION ATTACK: mejora la utilización de un DHCP ROGUE SERVER para hacer DHCP SPOOFING ya que asegura que los equipos reciban la configuración del servidor atacante.
+- DHCP EXHAUSTION ATTACK: similar o igual a dhcp starvation; llega un momento cuando el servidor dhcp no responde más (denial of services)
+
+### De acuerdo a lo aprendido en las últimas 3 unidades, hacer un entregable, explicando cuáles podrían ser potenciales formas de mitigar los ataques en cada servicio o protocolo, por ejemplo, un ataque a un servidor DHCP.
+Especificar diciendo nombre del ataque y servicio o protocolo atacado
+Al menos seleccionar 2 ataques de todo lo que vimos, relacionados con lo aprendido
 
