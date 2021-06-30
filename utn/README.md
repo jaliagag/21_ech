@@ -204,3 +204,34 @@ honeypot es un sistema muy flexible dentro de la seguridad informática que se e
 - según su interacción
   - alta interacción: sistema convencional, mal configurado para que sean atacados (metasploit?). cada interacción se considera sospechosa
   - baja interacción: investigación de nuevas amenazas en la red (máquina con vbox o vmware)
+
+### Material adicional
+
+L4: en ocasiones los datos que vienen de la capa de sesión (L5) exceden el tamaño máximo de transmisión (Maximum Transmission Unit o **MTU**) de la interfaz de red, por lo que es necesario partirlos y enviarlos en unidades más pequeñas - esta fragmentación y el ensamblado de paquetes se realiza en esta capa. también se realiza el control de flujo.
+
+- protocolo: conjunto de reglas que indican cómo se debe llevar a cabo un intercambio de datos. para que dos o más nodos en una red puedan intercambiar información es necesario que manejen el mismo conjunto de reglas
+
+## unidad 3 - redes informáticas - potenciales riegos
+
+agujeros de seguridad (vulnerabilidades) en SO.
+
+vulnerabilidades en aplicaciones
+
+usuarios sin conocimientos suficientes
+
+escáner de seguridad: nessus, tenable, openvas, nmap (`nmap -sS -v <ip>`)
+
+tipos de técnicas de ataques de red:
+
+1. denegación de servicio
+2. contral la autenticación
+3. modificación y daño a la integridad
+4. deficiencias de seguridad
+
+### nat - pat - arp - dns - dhcp
+
+- Network Address Translation: mecanismo utilizado por routers IP para intercambiar paquetes entre dos redes que asignan mutuamente direcciones incompatibles. la mayoría de los NAT asignan varias máquins (hosts) privadas a una dirección IP expuesta públicamente (el router).
+- Port Address Translation (PAT): variante de NAT que incorpora asignación dinámica de puertos en cada comunicación. trabajo(port forwarding)
+
+
+
