@@ -4,6 +4,14 @@
 El mail mio para la presentación de ejercicios es : banchiero.UTN@gmail.com
 ```
 
+## links de interés
+
+- OSINT:
+  - <https://centralops.net/co/>
+  - <https://www.robtex.com/>
+- tools:
+  - <https://github.com/ElevenPaths/EvilFOCA>
+
 ## unidad 1
 
 ejercicios
@@ -193,6 +201,9 @@ ips analiza en tiempo real. monitorear en tiempo real. rendimiento de tráfico a
 - detección basada en anomalías: puede ser que el aparato mismo genere la base de la normalidad o que se fije manualmente (lo cual puede generar falsos positivos)
 
 IPS Cisco 4265
+
+IPS previene -> proactivo - se pone siempre antes del router del proveedor. adelante del router del proveedor no podemos poner nada. atrás todo lo que quieras
+IDS detecta -> dentro de la red, ya entraron. monitorear segmentos
 
 #### honeypot
 

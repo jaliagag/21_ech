@@ -91,9 +91,11 @@ Dentro de una red hay un servidor DHCP con un rango de IPs privadas sin usar, co
 
 ### AYUDA: hay un servicio que todavía no se enseñó que permitiría el uso de dos segmentos de red diferentes a través de un SW, ¿cuál es?
 
-Creo que se refiere al servicio de subnetting, donde usamos segmentos para lógicos para separar redes.
+Creo que se refiere al servicio de subnetting, donde usamos segmentos lógicos para separar redes.
 
 ## De acuerdo a lo aprendido en las últimas 3 unidades, hacer un entregable, explicando cuáles podrían ser potenciales formas de mitigar los ataques en cada servicio o protocolo, por ejemplo, un ataque a un servidor DHCP. Especificar diciendo nombre del ataque y servicio o protocolo atacado. Al menos seleccionar 2 ataques de todo lo que vimos, relacionados con lo aprendido.
 
+- Para prevenir el ataque DHCP STARVATION se podría implementar un firewall que controle las direcciones MAC de los dispositivos que envían DHCPDISCOVER para bloquearlas durante un cierto periodo de tiempo si envían más de X cantidad de paquetes broadcast. Consideraríamos este un comportamiento anómalo con malas intenciones. También podría ser un bug en algún programa del sistema operativo que causa un error en el cliente y también un error en la red, en este caso, en el servidor DHCP. En cualquier caso, la regla de firewall para hacer un drop a los paquetes que provengan de cierta dirección MAC solucionaría ambos escenarios.
+- Para prevenir un ataque causado por un posible DHCP rogue server lo primero es conseguir detectar que un servidor DHCP que no es el "confiado" está entregando direcciones IP. Para esto existen distintos softwares (Rogue Checker, scapy) o IDS (sistema de detección de intrusos) que monitorean comportamientos anómalos en la red. Una vez detectado la existencia de un servidor DHCP rogue, se puede informar a los dispositivos que hagan un drop de los paquetes que reciban de este o directamente que el router haga ese drop de paquetes.
 
 

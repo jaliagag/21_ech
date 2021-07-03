@@ -15,7 +15,7 @@ En América Latina la principales bases de datos WHOIS son nic.ar (<https://nic.
 | www.cordoba.gob.ar | 76.223.3.255 | 01001100.11011111.00000011.1111111 |
 | www.dxc.com | 151.101.3.10 | 10010111.01100101.00000011.00001010 |
 | www.resolvit.com | 198.55.245.164 | 11000110.00110111.111110101.10100100 |
-| mail.google.com | 216.58.222.37 | 1101100.00111010.11011110.00100101 |
+| mail.google.com | 216.58.222.37 | 11011000.00111010.11011110.00100101 |
 
 1. Topología
 
