@@ -11,6 +11,9 @@ El mail mio para la presentación de ejercicios es : banchiero.UTN@gmail.com
   - <https://www.robtex.com/>
 - tools:
   - <https://github.com/ElevenPaths/EvilFOCA>
+  - software ids:
+    - <https://www.snort.org/>
+    - <https://suricata.io/>
 
 ## unidad 1
 
@@ -374,3 +377,46 @@ proveer las configuraciones necesarias de conectividad a los dispositivos. graci
 - DHCP ACK INJECTION ATTACK: mejora la utilización de un DHCP ROGUE SERVER para hacer DHCP SPOOFING ya que asegura que los equipos reciban la configuración del servidor atacante.
 - DHCP EXHAUSTION ATTACK: similar o igual a dhcp starvation; llega un momento cuando el servidor dhcp no responde más (denial of services)
 
+## Módulo 1 Unidad 4
+
+### dispositivos de seguridad
+
+objetivo de un firewall: bloquear acceso no autorizado. qué proteger, cómo proteger y dónde proteger
+
+_siendo que el tráfico verde es interno (al servidor) y el rojo tiene salida al exterior, considero que es más importante proteger el tráfico orientado hacia el exterior. Ya que la red de la derecha tiene más dispositivos que usan la red roja/externa, pondría un firewall entre el router principal y el switch del conjunto derecho, como se indica en esta imagen:_
+
+ACL: forma de determinar los permisos de acceso apropiados a un determinado objeto dependiendo de ciertos criterios del **proceso que hace el pedido**. según los ACL del proceso se le dará acceso o no. los criterios son: el origen del tráfico, el destino del tráfico, el protocolo usado. funciona a través de un firewall o router que analiza cada paquete, lo compara con la acl correspondiente línea por línea - toma la acción correspondiente: PERMIT o DENY (o drop?). el comportamiento predeterminado es deny all; si no encuentra una regla para el pedido, fue. 
+
+CISCO: 2 tipos de ACL más conocidas, las extendidas y las estándar que se pueden configurar tanto en routers como en firewalls:
+
+- listas de acceso estándar: filtran paquetes IP y solo consideran la dirección de origen: `Roter(config)#access-list 10 permit 192.168.2.10 0.0.0.0`. 192.168.2.10 es la dirección ip de origen y 0.0.0.0 es la máscara de wildcard
+- listas de acceso extendidas: filtran paquetes ip y consideran tanto la dirección de origen como la de destino y los números de puerto del encabezado de la capa de transporte: `Router(config)#access-list 105 deny tcp host 192.168.2.5 any eq 21` 
+  - 105: ACL IP extendida
+  - deny: deniega el acceso
+  - tcp: paquetes tcp
+  - host 192.168.2.5: dirección IP de origen
+  - any: dirección IP de destion
+  - eq 21: puerto TCP de destino
+
+- Escribir un ACL que permita el tráfico de la PC0 a la PC1: `access-list 101 permit ip host 10.20.20.50 0.0.0.0 host 10.10.10.51 0.0.0.0`
+- y otro ACL que permita el tráfico de la PC0 al server: `access-list 101 permit ip host 10.20.20.50 0.0.0.0 host 10.10.10.50 0.0.0.0`
+- Consigna: Logística y Ventas pueden verse entre sí, pero no pueden ver a Administración, sin embargo, Administración puede ver a todas
+  - `access-list 101 permit ip 172.16.1.0 0.0.0.255 192.168.1.0 0.0.0.255` + `access-list 101 permit ip 192.168.1.0 0.0.0.255 172.16.1.0 0.0.0.255` 
+  - `access-list 1 permit IP host 10.10.10.0 0.0.0.255` o `access-list 101 permit ip 10.10.10.0 192.168.1.0 0.0.0.255` + `access-list 101 permit ip 10.10.10.0 172.16.1.0 0.0.0.255`
+
+1. Relevamiento: tenemos una red que consiste en un modem de acceso, que se conecta a un firewall (primera y única medida de seguridad de hardware) que después se conecta con un main switch. De este switch dependen _TODAS_ las conexiones con los dispositivos finales, desde impresores a WAP y distintos servidores. El main switch funciona también con enrutador. También observamos que existe (al menos) una conexión remota capaz de acceder a la red interna. 
+2. Idealmente, hay que proteger todo. Prioritariamente, habría que seleccionar los servidores, especialmente el servidor de BackUp. También proteger las computadores de los trabajadores ya que también hay está almacenada información confidencial. Al mismo tiempo, para las conexiones remotas, establecer medidas de control para asegurarnos de 
+3. Los dispositivos principales, que son los servidores NO están bien posicionados, ya que no existe un dispositivo intermedio entre ellos y el main switch. Si bien existe un firewall entre el modem y el main switch, sigue siendo un SPOF (single point of failure)
+4. Agregar al menos un IPS después del firewall o detrás de otro switch entre el main switch y el grupo de servidores. También implementar un reglas al nivel del switch para permitir acceso de menor privilegio (least privilege access). Implementar un IDS en las subredes que se deberían crear, tanto en la subred de las estaciones de los usuarios finales como en la subred de los servidores.
+5. Existe un solo servidor de backup. Si este falla, la red se quedaría sin respaldo. Se podría crear un servidor redundante de backup.
+6. Cosas a mejorar podría ser implementar una VPN para el acceso remoto.
+
+Dada la estructura en el ejercicio añadí un firewall después de cada router además de un IPS después de cada firewall. Agregué dos routers (Router3 y 4) para la comunicación lateral, entre los dispositivos (doble router para asegurar redundancia). En los dispositivos agregué H-IDS. En el switch principal agregué un N-IDS al igual que otro N-IDS en los routers usamos para la comunicación lateral. Veo un SPOF que es el Switch0 - agregaría un segundo switch con las conexiones a los routers, aun sabiendo que eso significaría switches más grandes.
+
+## final01
+
+router - equipo de última milla.
+
+redundacia, replicación; 2 firewalls como backup. IPS es la bocha
+
+switch de capa 3 capaz que segmenta
