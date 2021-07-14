@@ -8,11 +8,15 @@ Siendo que el tráfico verde es interno (al servidor) y el rojo tiene salida al 
 
 ## Ejercicio 2
 
-- Escribir un ACL que permita el tráfico de la PC0 a la PC1: `access-list 101 permit ip host 10.20.20.50 0.0.0.0 host 10.10.10.51 0.0.0.0`
-- y otro ACL que permita el tráfico de la PC0 al server: `access-list 101 permit ip host 10.20.20.50 0.0.0.0 host 10.10.10.50 0.0.0.0`
+- Escribir un ACL que permita el tráfico de la PC0 a la PC1: 
+  - `access-list 101 permit ip host 10.20.20.50 0.0.0.0 host 10.10.10.51 0.0.0.0`
+- y otro ACL que permita el tráfico de la PC0 al server: 
+  - `access-list 101 permit ip host 10.20.20.50 0.0.0.0 host 10.10.10.50 0.0.0.0`
 - Consigna: Logística y Ventas pueden verse entre sí, pero no pueden ver a Administración, sin embargo, Administración puede ver a todas
-  - `access-list 101 permit ip 172.16.1.0 0.0.0.255 192.168.1.0 0.0.0.255` + `access-list 101 permit ip 192.168.1.0 0.0.0.255 172.16.1.0 0.0.0.255`
-  - `access-list 1 permit IP host 10.10.10.0 0.0.0.255` o `access-list 101 permit ip 10.10.10.0 192.168.1.0 0.0.0.255` + `access-list 101 permit ip 10.10.10.0 172.16.1.0 0.0.0.255`
+  - `access-list 101 permit ip 172.16.1.0 0.0.0.255 host 192.168.1.0 0.0.0.255` 
+  - `access-list 101 permit ip 192.168.1.0 0.0.0.255 host 172.16.1.0 0.0.0.255`
+  - `access-list 101 permit ip 10.10.10.0 0.0.0.255 host 192.168.1.0 0.0.0.255`
+  - `access-list 101 permit ip 10.10.10.0 0.0.0.255 host 172.16.1.0 0.0.0.255`
 
 ## De acuerdo a la metodología enseñada, poner en práctica los 6 puntos en este dibujo de red
 
@@ -23,8 +27,3 @@ Siendo que el tráfico verde es interno (al servidor) y el rojo tiene salida al 
 5. Existe un solo servidor de backup. Si este falla, la red se quedaría sin respaldo. Se podría crear un servidor redundante de backup.
 6. Cosas a mejorar podría ser implementar una VPN para el acceso remoto.
 
-## Ejercicio final del módulo 1
-
-![MOD1U4](./MOD1U4.png)
-
-Dada la estructura en el ejercicio añadí un firewall después de cada router además de un IPS después de cada firewall. Agregué dos routers (Router3 y 4) para la comunicación lateral, entre los dispositivos (doble router para asegurar redundancia). En los dispositivos agregué H-IDS. En el switch principal agregué un N-IDS al igual que otro N-IDS en los routers usamos para la comunicación lateral. Veo un SPOF que es el Switch0 - agregaría un segundo switch con las conexiones a los routers, aun sabiendo que eso significaría switches más grandes.
