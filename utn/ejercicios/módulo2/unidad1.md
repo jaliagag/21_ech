@@ -24,7 +24,7 @@
 
 - [  ] A Identificar los componentes
 - [  ] B Efectuar el análisis de riesgo
-- [  ] C Identificar los tipos de controles
+- [ X ] C Identificar los tipos de controles
 - [  ] D Relacionar tipo de solución con la zona de riesgo
 - [  ] E Relacionar soluciones de mercado con tipo de control
 - [  ] F Diseño final de la red
