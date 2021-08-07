@@ -1,0 +1,517 @@
+   17  ping 192.168.65.4
+   18  k get svc
+   19  curl http://10.96.113.60:8080
+   20  ping http://10.96.113.60 -p 8080
+   21  ping http://10.96.113.60 8080
+   22  curl http://10.96.113.60:8080
+   23  curl http://192.168.65.4:80
+   24  curl http://192.168.65.4:8080
+   25  watch http://localhost:30007/
+   26  watch curl http://localhost:30007/
+   27  cd docos/courses/02_managing-kubernetes-api-server-pods/02/demos/demos/
+   28  ls
+   29  less 1-APIObjects.sh 
+   30  cd ..
+   31  cd ../..
+   32  ls
+   33  cd ..
+   34  cd 01_kubernetes-installation-configuration-fundamentals/
+   35  ls
+   36  cd 04
+   37  ls
+   38  cd demos/demos/
+   39  ls
+   40  less 1-workingwithyourcluster.sh 
+   41  less 2-deployingapplications.sh 
+   42  k describe svc hello-world 
+   43  k edit svc hello-world 
+   44  less 2-deployingapplications.sh 
+   45  ls
+   46  cd ..
+   47  cd ..
+   48  ls
+   49  cd ..
+   50  ls
+   51  cd ..
+   52  cd 02_managing-kubernetes-api-server-pods/
+   53  ls
+   54  cd 02
+   55  ls
+   56  cd demos/demos/
+   57  ls
+   58  ls ..
+   59  ls
+   60  pwd
+   61  less 1-APIObjects.sh 
+   62  ls
+   63  less 2
+   64  less 2-APIObjectVersions.sh 
+   65  less 3-AnatomyApiRequest.sh 
+   66  pwd
+   67  k get pods
+   68  docker images
+   69  docker images | grep ubuntu
+   70  exit
+   71  cd docos/
+   72  ls
+   73  cd courses/
+   74  ls
+   75  nvim resolvit.md 
+   76  ssh jaliaga@worker1
+   77  ssh jaliaga@worker2
+   78  ssh jaliaga@worker2
+   79  ssh jaliaga@worker2
+   80  exit
+   81  ssh jaliaga@worker1
+   82  ssh jaliaga@worker1
+   83  exit
+   84  ssh jaliaga@master
+   85  ssh jaliaga@ubuntu
+   86  kc
+   87  kc | grep prod-torq-use-ports-eks 
+   88  kc | grep dev-torq-use-ports-eks
+   89  kc | grep dev-torq-use-ports2-eks
+   90  kc | grep stage-torq-use-portopt-eks
+   91  kc
+   92  k get pods
+   93  k get pods -A | grep kong
+   94  k get pods -n torq-system
+   95  k get pods -n torq-system -o wide
+   96  k get svc -n torq-system -o wide
+   97  nslookup i-0acfba66d6f0392cc
+   98  k get svc -n torq-system -o wide
+   99  cat worknotes.md 
+  100  ping www.google.com
+  101  exit
+  102  kc
+  103  kc | grep pds1
+  104  kc arn:aws:eks:us-east-1:905467511563:cluster/dev-torq-use-pds1-eks
+  105  k get nodes
+  106  awslogin
+  107  k get nodes
+  108  kc | grep edgelinc
+  109  kc | grep nonprod-torq-edgelinc-eks-sandbox
+  110  kc | grep iot
+  111  kc
+  112  kc | grep ports-eks
+  113  ls
+  114  nvim worknotes.md
+  115  exit
+  116  nvim worknotes.md 
+  117  less worknotes.md 
+  118  nvim worknotes.md 
+  119  less worknotes.md 
+  120  kc | grep stage-torq-use-portopt-eks
+  121  kc | dev-torq-use-ports-eks
+  122  kc | grep dev-torq-use-ports-eks
+  123  awslogin
+  124  kc | grep dev-torq-use-ports-eks
+  125  kc arn:aws:eks:us-east-1:905467511563:cluster/dev-torq-use-ports-eks
+  126  kubectl get service -n torq-system -o wide
+  127  kc | grep ports2-eks
+  128  kc arn:aws:eks:us-east-1:905467511563:cluster/dev-torq-use-ports2-eks
+  129  kubectl get service -n torq-system -o wide
+  130  kc | grep stage-torq-use-prtopt-eks
+  131  kc | grep stage-torq-use-protopt-eks
+  132  kc | grep stage-torq-use-portopt-eks
+  133  kc arn:aws:eks:us-east-1:686275684476:cluster/stage-torq-use-portopt-eks
+  134  kubectl get service -n torq-system -o wide
+  135  kc | grep prod-torq-use-ports-eks
+  136  kc arn:aws:eks:us-east-1:686275684476:cluster/prod-torq-use-ports-eks
+  137  kubectl get service -n torq-system -o wide
+  138  kc | grep dev-torq-use-ports-eks
+  139  kc arn:aws:eks:us-east-1:905467511563:cluster/dev-torq-use-ports-eks
+  140  kubectl get service -n torq-system -o wide
+  141  kc | grep stage-torq-use-portopt-eks
+  142  kc arn:aws:eks:us-east-1:686275684476:cluster/stage-torq-use-portopt-eks
+  143  kubectl get service -n torq-system -o wide
+  144  kc
+  145  kc | grep dev-torq-use-ports-eks 
+  146  kc arn:aws:eks:us-east-1:905467511563:cluster/dev-torq-use-ports-eks
+  147  kubectl get service -n torq-system -o wide
+  148  kc | grep dev-torq-use-ports2-eks 
+  149  kc arn:aws:eks:us-east-1:905467511563:cluster/dev-torq-use-ports2-eks
+  150  kubectl get service -n torq-system -o wide
+  151  kc | grep 358241501924
+  152  kc | grep atlas
+  153  kc arn:aws:eks:us-east-1:149645717341:cluster/staging-torq-atlas-eks
+  154  k get nods
+  155  k get nodes
+  156  awslogin
+  157  kc
+  158  k get nodes
+  159  ssh ip-10-92-65-180.ec2.internal
+  160  k exec -it ip-10-92-65-180.ec2.internal -- /bin/sh
+  161  aws ec2 create-key-pair --key-name key001 --quert "KeyMaterial" --output text > key001.pem
+  162  aws ec2 create-key-pair --key-name key001 --query "KeyMaterial" --output text > key001.pem
+  163  aws configure
+  164  aws ec2 create-key-pair --key-name key001 --query "KeyMaterial" --output text > key001.pem
+  165  aws secrets
+  166  cd .ssh/
+  167  ls
+  168  nvim ext-stage-torq-atlas-eks-kms.pem
+  169  chmod 400 ext-stage-torq-atlas-eks-kms.pem 
+  170  ls -l ext-stage-torq-atlas-eks-kms.pem 
+  171  aws configure
+  172  ssh -i "ext-stage-torq-atlas-eks-kms.pem" root@10.92.65.180
+  173  ssh -i "ext-stage-torq-atlas-eks-kms.pem" ec2user@10.92.65.180
+  174  cd
+  175  cd Downloads
+  176  ls -ltr
+  177  gunzip aws-secrets-downloader-master.zip
+  178  man gzip
+  179  cd aws-secrets-downloader-master/
+  180  ls
+  181  ls -l
+  182  ./get.sh 
+  183  cd
+  184  cat .aws-profiles | while read line; do export AWS_PROFILE=$line; aws configure; done
+  185  nvim .aws/credentials 
+  186  cat .aws-profiles | while read line; do export AWS_PROFILE=$line; aws configure; done
+  187  cd Downloads/aws-secrets-downloader-master/
+  188  ls
+  189  ./get.sh 
+  190  ./get.sh 
+  191  awslogin
+  192  ./get.sh 
+  193  export AWS_PROFILE=709630838427-bu-torq-poweruser
+  194  aws configure
+  195  ./get.sh 
+  196  ls -l
+  197  cd pems
+  198  ls
+  199  cd ..
+  200  mv pems ~/
+  201  cd
+  202  ls
+  203  kc 
+  204  history | grep node-shell
+  205  k get nodes
+  206  awslogin
+  207  k get nodes
+  208  ssh node-shell ip-10-92-65-180.ec2.internal
+  209  k node-shell ip-10-92-65-180.ec2.internal
+  210  cd 
+  211  nvim .aws/credentials 
+  212  nvim .aws/credentials 
+  213  awslogin 709630838427
+  214  awslogin
+  215  kc | grep ports2-eks
+  216  kc arn:aws:eks:us-east-1:905467511563:cluster/dev-torq-use-ports2-eks
+  217  k get nodes
+  218  k node-shell ip-10-92-118-156.ec2.internal
+  219  history | grep node-shell
+  220  k node-shell ip-10-92-118-156.ec2.internal
+  221  cd Downloads/
+  222  cd
+  223  cd docos/
+  224  gzip aws-secrets-downloader-master/
+  225  gzip aws-secrets-downloader-master*
+  226  cd docos/mineGitHub/21_ech/utn/ejercicios/
+  227  ls
+  228  nvim Aliaga_Unidad4.md 
+  229  pwd
+  230  nvim Aliaga_Unidad4.md 
+  231  grip Aliaga_Unidad4.md
+  232  grip final_unidad1.md 
+  233  cd docos/mineGitHub/21_ech/utn/ejercicios/
+  234  ls
+  235  man sed
+  236  man sed
+  237  cd /Users/jose.aliaga/docos/mineGitHub/21_ech/utn/ejercicios
+  238  nvim final unidad1.md
+  239  rm final unidad1.md
+  240  ls
+  241  nvim final_unidad1.md
+  242  nvim final_unidad1.md
+  243  nvim Aliaga_Unidad4.md
+  244  nvim final_unidad1.md 
+  245   
+  246  nvim mumsath
+  247  cd docos/
+  248  mkdir documentation
+  249  cd documentation/
+  250  mkdir creating-dns-entries-in-route53
+  251  cd creating-dns-entries-in-route53/
+  252  nvim creating-dns-entries-in-route53.md
+  253  pwd
+  254  nvim creating-dns-entries-in-route53.md
+  255  man unzip
+  256  cd
+  257  kc | grep 709630838427
+  258  awslogin
+  259  kc | grep redis
+  260  kc
+  261  kc | grep 709630838427
+  262  ping www.google.com
+  263  ping www.google.com
+  264  ping www.google.com
+  265  kc | grep 041325763806
+  266  kc | grep 041325763806 | grep nhtest
+  267  kc arn:aws:eks:us-east-1:041325763806:cluster/dev-torqmgt-use1-nhtest-eks
+  268  k get nodes
+  269  k get nodes
+  270  kc
+  271  kc
+  272  k get nodes
+  273  k config current-context
+  274  k get nodes
+  275  ping www.google.com
+  276  awslogin
+  277  kc | grep datastax
+  278  kc arn:aws:eks:us-east-1:041325763806:cluster/dev-torqmgt-use1-datastax-eks
+  279  k get nodes
+  280  w
+  281  k drain ip-10-92-40-247.ec2.internal --ignore-daemonsets --delete-local-data
+  282  k get pods -o wide -A 
+  283  k get pods -o wide -A | grep cluster2-dc1-default-sts-1
+  284  k delete pod cluster2-dc1-default-sts-1 -n cass-operator --grace-period=0 --force
+  285  k drain ip-10-92-40-247.ec2.internal --ignore-daemonsets --delete-local-data
+  286  k get pods -o wide -A
+  287  k get ds
+  288  k get ds -n cass-operator 
+  289  k get deploy -n cass-operator 
+  290  k describe deploy -n cass-operator cass-operator 
+  291  k get pods -o wide -n cass-operator
+  292  k get pods -o wide
+  293  k get pods -o wide
+  294  k get pods -o wide -A
+  295  k get nodes
+  296  k get pods -o wide -A | grep ip-10-92-40-247.ec2.internal
+  297  k get nodes
+  298  k drain ip-10-92-42-227.ec2.internal --ignore-daemonsets --delete-local-data
+  299  kubectl delete pod cluster2-dc1-default-sts-0 -n cass-operator
+  300  history > decomm
+  301  exit
+  302  k get nodes
+  303  k get pods -A
+  304  k get pods -A
+  305  k get pods -n cass-operator
+  306  k get nodes
+  307  k node-shell ip-10-92-40-247.ec2.internal
+  308  k get nodes
+  309  k get nodes
+  310  k get nodes
+  311  k get nodes -w
+  312  awslogin
+  313  history >> decomm 
+  314  k config current-context
+  315  k config current-context
+  316  kc | grep cnitest
+  317  kc arn:aws:eks:us-east-1:041325763806:cluster/dev-torqmgt-use1-cnitest-eks
+  318  k get nodes
+  319  kc | grep nhtest
+  320  kc arn:aws:eks:us-east-1:041325763806:cluster/dev-torqmgt-use1-nhtest-eks
+  321  k get nodes
+  322  awslogin
+  323  ping www.google.com
+  324  ping www.google.com
+  325  kc 
+  326  k get nodes
+  327  k config current-context
+  328  aws ec2 describe-instances --filters Name=dev-torqmgt-use1-datastax-eks
+  329  awslogin
+  330  aws ec2 describe-instances --filters Name=dev-torqmgt-use1-datastax-eks
+  331  ls
+  332  kc
+  333  k get all -A
+  334  kc | grep 110dot
+  335  kc | grep 100dot
+  336  kc | grep dev-torq-use1-116-
+  337  cat .ssh/id_rsa.pub 
+  338  kc | grep ptc
+  339  kc | grep brc
+  340  kc | grep stage-torq-use
+  341  kc | grep stage-torq-use-ptc
+  342  man netstat
+  343  man vmstat
+  344  brew install vmsgat
+  345  brew install vmstat
+  346  kc | grep stage-torq-use-ptc
+  347  ping www.google.com
+  348  top
+  349  top
+  350  top
+  351  top
+  352  top
+  353  ping www.google.com
+  354  awslogin
+  355  kc | grep staging-torq-atlas-eks
+  356  kc arn:aws:eks:us-east-1:149645717341:cluster/staging-torq-atlas-eks
+  357  k get nodes
+  358  k node-shell ec2-user@ip-10-92-65-180
+  359  k node-shell ip-10-92-65-180.ec2.internal
+  360  kc | grep standalone-rds
+  361  kc | grep postgres
+  362  kc | grep rds
+  363  kc
+  364  k | grep dev-torq-use-pds 
+  365  kac | grep dev-torq-use-pds 
+  366  kc | grep dev-torq-use-pds 
+  367  kc | grep postgres
+  368  kc | grep torq-use-ptc
+  369  kc arn:aws:eks:us-east-1:686275684476:cluster/stage-torq-use-ptc-eks
+  370  k config current-context
+  371  kc | grep torq-mgmt
+  372  kc | grep rds
+  373  cd docos/documentation/creating-dns-entries-in-route53/
+  374  ls
+  375  grip creating-dns-entries-in-route53.md 
+  376  curl -v https://vpc-dev-torq-use-ports2-es-ph4ur3cxqyqjictxrrvmhsizum.us-east-1.es.amazonaws.com
+  377  curl  https://vpc-dev-torq-use-ports2-es-ph4ur3cxqyqjictxrrvmhsizum.us-east-1.es.amazonaws.com
+  378  curl vpc-dev-torq-use-ports2-es-ph4ur3cxqyqjictxrrvmhsizum.us-east-1.es.amazonaws.com:443
+  379  nmap https://vpc-dev-torq-use-ports2-es-ph4ur3cxqyqjictxrrvmhsizum.us-east-1.es.amazonaws.com
+  380  brew install nmap
+  381  nmap https://vpc-dev-torq-use-ports2-es-ph4ur3cxqyqjictxrrvmhsizum.us-east-1.es.amazonaws.com
+  382  curl -O https://mirror.openshift.com/pub/rhacs/assets/3.0.62.0/bin/Linux/roxctl
+  383  ls
+  384  ls -ltr
+  385  rm -rf roxctl 
+  386  curl -O https://mirror.openshift.com/pub/rhacs/assets/3.0.62.0/bin/Darwin/roxctl
+  387  ls -ltr
+  388  xattr -c roxctl
+  389  chmod +x roxctl
+  390  mv roxctl /usr/local/bin/roxctl
+  391  roxctl version
+  392  rm -rf /usr/local/bin/roxctl
+  393  roxctl version
+  394  curl -O https://mirror.openshift.com/pub/rhacs/assets/3.0.61.0/bin/Darwin/roxctl
+  395  ls -ltr
+  396  chmod +x roxctl
+  397  mv roxctl /usr/local/bin/roxctl
+  398  roxctl version
+  399  man kubectl
+  400  cd docos/mineGitHub/21_ech/utn
+  401  ls
+  402  cd ejercicios/módulo1/
+  403  ls
+  404  cat Aliaga_Unidad3.md 
+  405  open .
+  406  kc | grep pds
+  407  kc
+  408  kc | grep torq-use-pds
+  409  kc arn:aws:eks:us-east-1:905467511563:cluster/dev-torq-use-pds-eks
+  410  k get nodes -w
+  411  k get nodes
+  412  k get nodes -A
+  413  man roxctl
+  414  brew install roxctl
+  415  kc | grep torq-use-ptc
+  416  terraform --version
+  417  brew tap hashicorp/tap
+  418  brew install hashicorp/tap/terraform
+  419  kc | grep use-pds
+  420  awslogin
+  421  ls pem
+  422  ls 
+  423  cd pems
+  424  ls
+  425  nvim tf-eks
+  426  mv tf-eks tf-eks.pem
+  427  cd ..
+  428  chmod 400 pems/tf-eks.pem 
+  429  ssh centos@10.92.58.13 -i pems/tf-eks.pem 
+  430  kc | grep postgres
+  431  cd docos/mineGitHub/21_ech/
+  432  git add *
+  433  git commit -m 'final unidad 1'
+  434  git push
+  435  ls
+  436  cd utn/ejercicios
+  437  ls
+  438  mkdir módulo1
+  439  mv * módulo1/
+  440  ls
+  441  mkdir módulo2
+  442  cd módulo2/
+  443  ls
+  444  nvim unidad1.md
+  445  cd
+  446  cd docos/documentation/
+  447  mkdir tto
+  448  cd tto/
+  449  nvim notes.md
+  450  cd docos/mineGitHub/21_ech/utn/ejercicios/módulo2
+  451  grip unidad1.md 
+  452  kc | grep postgres
+  453  kc | grep ptc
+  454  kc | grep rds
+  455  kc | grep ptc
+  456  kc | grep 686275684476
+  457  kc | grep 686275684476 | grep ptc
+  458  kc | grep 686275684476 | grep prod
+  459  kc | grep ptc
+  460  kc | grep 686275684476 | grep prod
+  461  kc | grep ptc
+  462  kc | grep use-pds1
+  463  kc arn:aws:eks:us-east-1:905467511563:cluster/dev-torq-use-pds1-eks
+  464  curl -o ccloud.tar.gz https://s3-us-west-2.amazonaws.com/confluent.cloud/ccloud-cli/archives/latest/ccloud_latest_linux_amd64.tar.gz
+  465  kc | grep ports2
+  466  kc arn:aws:eks:us-east-1:905467511563:cluster/dev-torq-use-ports2-eks
+  467  awslogin
+  468  k get nodes
+  469  k get nodes -o wide
+  470  kc | grep raildocs
+  471  kc | grep toof
+  472  man terraform
+  473  ls
+  474  cd docos/scripts/
+  475  git clone git@gitlab.corp.wabtec.com:Mariano.Arellano/confluent-cloud-attach.git
+  476  ls
+  477  ls -ltr
+  478  kc | grep raildocs
+  479  awslogin
+  480  kc arn:aws:eks:us-east-1:905467511563:cluster/dev-torq-use-raildocs-eks
+  481  k get nodes
+  482  k get ingress -A
+  483  k get ep -A
+  484  k get pods -A
+  485  k get ns
+  486  k get pods -n torq-system 
+  487  k get ingress
+  488  cd docos/mineGitHub/21_ech/utn/ejercicios/módulo2/
+  489  grip unidad1.md 
+  490  ls
+  491  cd docos/courses/
+  492  ls
+  493  mkdir pluralsight-resolvit
+  494  mv * pluralsight-resolvit/
+  495  ls
+  496  mkdir python-scripting-youtube
+  497  cd python-scripting-youtube/
+  498  ls
+  499  nvim notes.md
+  500  alias
+  501  kc 
+  502  cd docos/mineGitHub/21_ech/utn/ejercicios/
+  503  ls
+  504  cd módulo1/
+  505  open .
+  506  cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+br_netfilter
+EOF
+
+  507  sudo su -
+  508  cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+
+  509  apt-get install     apt-transport-https     ca-certificates     curl     gnupg     lsb-release
+  510   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+  511   sudo apt-get install docker-ce docker-ce-cli containerd.io
+  512  cat <<EOF | sudo tee /etc/docker/daemon.json
+{
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m"
+  },
+  "storage-driver": "overlay2"
+}
+EOF
+
+  513  sudo apt-get install -y apt-transport-https ca-certificates curl
+  514  sudo apt-get install -y kubelet kubeadm kubectl
+  515  sudo usermod -aG docker $USER
+  516  history > 'hasta la instalacion del cni'
