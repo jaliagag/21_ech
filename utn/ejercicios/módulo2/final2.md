@@ -4,7 +4,7 @@
 
 ### Figura 1
 
-Lo primero que se observa en esta topología es una 
+Lo primero que se observa en esta topología es que hay un 
 
 ### Figura 2
 
