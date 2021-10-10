@@ -25,8 +25,14 @@ Fuentes:
 
 ### Mediante una máquina virtual, hacer uso de estas 2 herramientas, cifrando un directorio personal y realizando un cifrado de un archivo (ambos resultados, subirlos al foro exponiendo la captura imagen)
 
+Veracrypt:
+
 ![vera](./img/volume-created.png)
 
 ![size](./img/150mb.png)
+
+gpg4win
+
+![gpg4win](./img/gpg4win.png)
 
 
