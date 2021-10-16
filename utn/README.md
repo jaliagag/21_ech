@@ -4,6 +4,10 @@
 El mail mio para la presentación de ejercicios es : banchiero.UTN@gmail.com
 ```
 
+MITM
+
+forward traffic on linux: `sysctl -w net.ipv4.ip_forward=1`
+
 ## links de interés
 
 - OSINT:
@@ -16,6 +20,17 @@ El mail mio para la presentación de ejercicios es : banchiero.UTN@gmail.com
     - <https://suricata.io/>
 - test and lab:
   - <https://archive.org/search.php?query=subject%3A%22IEVM%22>
+- scanner de vulnerabilidades: NESSUS
+- scanner:
+  - NIKTO
+  - WPSCAN
+  - SKIPFISH
+- dispositivos: IPS/FIREWALL
+- CVE: sistema de identificación de vulnerabilidades
+- w3af: scan de vulnerabilidades
+- Nirsoft
+- Sysinternals
+  
 
 ## unidad 1
 
